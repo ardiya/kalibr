@@ -198,7 +198,7 @@ def main():
     #initialize the calibration graph
     graph = kcc.MulticamCalibrationGraph(obsdb)
     
-    if not graph.isGraphConnected():
+    if numCams > 1 and not graph.isGraphConnected():
         obsdb.printTable()
         print("Cameras are not connected through mutual observations, please check the dataset. Maybe adjust the approx. sync. tolerance.")
         graph.plotGraph()
